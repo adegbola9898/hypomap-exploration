@@ -49,8 +49,12 @@
   "publication_comparison": {
     "scope": "human_DENND1B_MC4R_detection_percentages",
     "s9_subgroup_definitions": "pending_verification",
-    "s10_cluster_mapping": "pending_verification",
+    "s10_cluster_mapping": "verified_identifiers_names_and_counts",
     "published_detection_threshold": "pending_verification",
-    "average_expression": "deferred"
+    "average_expression": "deferred",
+    "s10_cluster_field": "C4",
+    "s10_cluster_name_field": "C4_named",
+    "s10_expected_clusters": 452,
+    "s10_mapping_evidence": "provenance/s10_cluster_comparison.tsv"
   }
 }
