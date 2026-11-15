@@ -68,3 +68,27 @@ describe sampled nuclei and are not donor-balanced estimates.
 No new clustering or significance testing is planned.
 
 The machine-readable choices are recorded in config/analysis.json.
+
+## Amendment following inspection of supplementary tables S9 and S10
+
+The original extraction proposal selected neurons immediately.
+The supplied reference tables require broader coverage:
+S9 contains all-cell summaries, and S10 includes non-neuronal clusters.
+
+Extract the two target genes across all 433,369 nuclei and retain
+C3/C4 identifiers and names alongside the existing metadata.
+The primary exploratory analysis remains restricted to the previously
+selected 166,475 C0 neurons and seven C1 populations.
+
+S10 has 452 cluster rows with mixed C3/C4 identifiers. Mapping these
+rows to atlas annotations requires verification before comparison.
+Matching total nucleus counts alone does not establish identical
+cell membership or analysis settings.
+
+The first comparison concerns human DENND1B and MC4R detection
+percentages only. Published detection thresholds and receptor-subgroup
+definitions remain unverified. Average-expression comparisons are
+deferred until their calculation is established.
+
+This amendment follows inspection of reference tables, before
+examining extracted DENND1B–MC4R co-detection results.

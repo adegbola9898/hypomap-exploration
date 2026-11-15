@@ -4,7 +4,10 @@
   "matrix_path": "raw/X",
   "feature_index_path": "raw/var/_index",
   "cell_index_path": "obs/_index",
-  "genes": ["DENND1B", "MC4R"],
+  "genes": [
+    "DENND1B",
+    "MC4R"
+  ],
   "selection_field": "C0_named",
   "selection_value": "C0-3 Neuron",
   "expected_selected_nuclei": 166475,
@@ -22,5 +25,32 @@
   "sensitivity_min_count": 2,
   "donor_field": "Donor_ID",
   "dataset_field": "Dataset",
-  "undefined_conditional_percentage": null
+  "undefined_conditional_percentage": null,
+  "extraction": {
+    "population": "all_nuclei",
+    "expected_nuclei": 433369,
+    "preserve_obs_fields": [
+      "C0_named",
+      "C1_named",
+      "C3",
+      "C3_named",
+      "C4",
+      "C4_named",
+      "celltype_annotation",
+      "region",
+      "Donor_ID",
+      "Sample_ID",
+      "Dataset",
+      "nCount_RNA",
+      "nFeature_RNA",
+      "percent.mt"
+    ]
+  },
+  "publication_comparison": {
+    "scope": "human_DENND1B_MC4R_detection_percentages",
+    "s9_subgroup_definitions": "pending_verification",
+    "s10_cluster_mapping": "pending_verification",
+    "published_detection_threshold": "pending_verification",
+    "average_expression": "deferred"
+  }
 }
