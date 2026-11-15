@@ -1,0 +1,45 @@
+field	label	n_nuclei
+celltype_annotation	Neurons	165270
+celltype_annotation	Ermn.Oligodendrocytes	144271
+celltype_annotation	Astrocytes	61579
+celltype_annotation	OPC	29557
+celltype_annotation	Tmem119.Immune	22287
+celltype_annotation	Mural	2308
+celltype_annotation	Endothelial	1547
+celltype_annotation	Ependymal	1532
+celltype_annotation	Gpr17.Oligodendrocytes	1281
+celltype_annotation	Dcn.Fibroblasts	1221
+celltype_annotation	P2RX2_OTP	1205
+celltype_annotation	F13a1.Immune	677
+celltype_annotation	Ms4a4b.Immune	619
+celltype_annotation	Tanycytes	15
+C0_named	C0-2 Oligodendrocytes	175109
+C0_named	C0-3 Neuron	166475
+C0_named	C0-1 AstroEpendymal	63111
+C0_named	C0-4 Immune/Vascular	28674
+C1_named	C1-4 Oligo-Mature	144247
+C1_named	C1-1 Astrocytes	61653
+C1_named	C1-5 Pre-1	48404
+C1_named	C1-10 Mid-2	31323
+C1_named	C1-3 Oligo-Precursor	30862
+C1_named	C1-6 Mid-1	29741
+C1_named	C1-13 Immune	23651
+C1_named	C1-11 Post-2	18946
+C1_named	C1-8 Post-1	13679
+C1_named	C1-9 Mid-3	12539
+C1_named	C1-7 Pre-2	11843
+C1_named	C1-12 Vascular	5023
+C1_named	C1-2 Ependymal	1458
+Donor_ID	3u5kk	128189
+Donor_ID	znZv1	72940
+Donor_ID	siletti_H19.30.001	51103
+Donor_ID	siletti_H18.30.002	40927
+Donor_ID	tzan2	39575
+Donor_ID	1C41i	35699
+Donor_ID	siletti_H19.30.002	29375
+Donor_ID	buFpQ	20878
+Donor_ID	eXCJJ	7064
+Donor_ID	f5sVM	4911
+Donor_ID	TweV8	2708
+Dataset	Tadross	311964
+Dataset	Siletti	121405

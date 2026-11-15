@@ -1,0 +1,10 @@
+{
+  "dataset_doi": "https://doi.org/10.17863/CAM.111988",
+  "download_url": "https://www.repository.cam.ac.uk/bitstreams/07f66aef-76cd-48aa-b0ae-9a7a201dbbc0/download",
+  "local_path": "data/raw/human_HYPOMAP_snRNASeq.h5ad",
+  "size_bytes": 6639007892,
+  "sha256": "7073c8a09bd5b0e12d02efcc150d495bbacd54cd855ade368b4a0030dd71ec6f",
+  "verified_at_utc": "2026-11-15T11:18:25.069669+00:00",
+  "format_check": "HDF5 signature recognised",
+  "content_validation": "Pending"
+}

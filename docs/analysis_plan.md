@@ -47,4 +47,24 @@ data versions, definitions and numerical outputs have been compared.
 - A short supervisor discussion brief.
 
 ## Status
-Environment preparation only. No biological data analysed.
+Environment setup and initial dataset audit completed. Primary population and count-matrix choices documented. Gene extraction and co-detection analysis have not started.
+
+## Frozen primary population and matrix choices
+
+Select C0_named == "C0-3 Neuron": 166,475 nuclei.
+This includes both "Neurons" and "P2RX2_OTP" celltype annotations.
+Group by the seven existing C1_named neuronal populations.
+Retain every selected population, including zero-detection results.
+Population selection was completed before gene co-detection analysis.
+
+Use raw/X for count-based analysis. In 30 sampled rows, values
+were finite nonnegative integers and totals matched nCount_RNA.
+This supports the count interpretation but is not full-matrix validation.
+Validate the extracted gene values before analysis.
+
+Preserve Donor_ID, Dataset and existing QC metadata.
+Donor coverage varies strongly by population; pooled percentages
+describe sampled nuclei and are not donor-balanced estimates.
+No new clustering or significance testing is planned.
+
+The machine-readable choices are recorded in config/analysis.json.

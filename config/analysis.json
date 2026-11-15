@@ -1,0 +1,26 @@
+{
+  "source_file": "data/raw/human_HYPOMAP_snRNASeq.h5ad",
+  "source_sha256": "7073c8a09bd5b0e12d02efcc150d495bbacd54cd855ade368b4a0030dd71ec6f",
+  "matrix_path": "raw/X",
+  "feature_index_path": "raw/var/_index",
+  "cell_index_path": "obs/_index",
+  "genes": ["DENND1B", "MC4R"],
+  "selection_field": "C0_named",
+  "selection_value": "C0-3 Neuron",
+  "expected_selected_nuclei": 166475,
+  "group_field": "C1_named",
+  "group_order": [
+    "C1-5 Pre-1",
+    "C1-6 Mid-1",
+    "C1-7 Pre-2",
+    "C1-8 Post-1",
+    "C1-9 Mid-3",
+    "C1-10 Mid-2",
+    "C1-11 Post-2"
+  ],
+  "primary_min_count": 1,
+  "sensitivity_min_count": 2,
+  "donor_field": "Donor_ID",
+  "dataset_field": "Dataset",
+  "undefined_conditional_percentage": null
+}

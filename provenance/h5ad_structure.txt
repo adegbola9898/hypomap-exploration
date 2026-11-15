@@ -1,0 +1,25 @@
+Root entries: ['X', 'obs', 'obsm', 'raw', 'var', 'varm']
+X: group encoding=csr_matrix, shape=[433369  60333]
+  children: ['data', 'indices', 'indptr']
+layers: absent
+raw: group encoding=unspecified, shape=unspecified
+  children: ['X', 'var']
+raw/X: group encoding=csr_matrix, shape=[433369  60333]
+  children: ['data', 'indices', 'indptr']
+raw/var: group encoding=unspecified, shape=unspecified
+  children: ['_index']
+obs: group encoding=dataframe, shape=unspecified
+  children: ['C0', 'C0_named', 'C1', 'C1_named', 'C2', 'C2_named', 'C3', 'C3_named', 'C4', 'C4_named', 'Cell_ID', 'Dataset', 'Donor_ID', 'Sample_ID', 'Technology', '__categories', '_index', 'age_years', 'celltype_annotation', 'nCount_RNA', 'nFeature_RNA', 'orig.ident', 'percent.mt', 'region', 'sex']
+var: group encoding=dataframe, shape=unspecified
+  children: ['_index', 'features']
+obsm: group encoding=unspecified, shape=unspecified
+  children: ['X_scvi', 'X_umap']
+obs: index field='_index'
+  length=433369
+  first five identifiers=[b'TweV8_N1_TGACAGTTCTCCGAGG-1', b'TweV8_N1_CAGATTGCACTTTATC-1', b'TweV8_N1_TCAGTTTGTTGGCTAT-1', b'TweV8_N1_CTTACCGTCCTGATAG-1', b'TweV8_N1_AGACAAAAGAGCTGCA-1']
+var: index field='_index'
+  length=60333
+  first five identifiers=[b'AL627309.1', b'AL627309.3', b'AL627309.5', b'LINC01409', b'LINC01128']
+raw/var: index field='_index'
+  length=60333
+  first five identifiers=[b'AL627309.1', b'AL627309.3', b'AL627309.5', b'LINC01409', b'LINC01128']
