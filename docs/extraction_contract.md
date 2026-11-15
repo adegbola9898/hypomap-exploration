@@ -139,3 +139,37 @@ provenance. The wrapper alone does not authenticate the source file.
 String metadata must be decoded to text. Missing values must remain
 missing. Categorical encodings must be decoded explicitly or rejected
 with a clear error; category codes must not silently become labels.
+
+## Execution layer
+
+run_extraction(config_path, project_root, *, max_nnz_per_chunk)
+
+Resolve configured relative paths against project_root.
+Read configuration without modifying it.
+
+Execution order:
+1. Reject existing final output or manifest files.
+2. Verify the source SHA-256 before opening it for extraction.
+3. Call extract_atlas_counts using read-only HDF5 access.
+4. Validate the returned table and record missing metadata counts.
+5. Write the compressed table and manifest to temporary files.
+6. Publish the table, then publish the manifest as the completion marker.
+
+Final paths:
+- data/derived/all_nuclei_gene_counts.tsv.gz
+- provenance/extraction_manifest.json
+
+On an ordinary caught exception, remove temporary files and any final
+files created by this invocation. Never delete pre-existing artifacts.
+A process interruption may leave an orphan table; absence of a valid
+manifest means the run is incomplete. Do not overwrite it automatically.
+
+The manifest includes source/configuration/output SHA-256 values,
+gene-column mapping, dimensions, missing metadata counts, code commit,
+working-tree status, software versions and UTC completion time.
+
+Use an explicit missing-value representation when serialising metadata.
+Preserve the literal string "NA", which occurs in the region field.
+Document the corresponding table-reading settings.
+
+Return the completed manifest as a dictionary.
