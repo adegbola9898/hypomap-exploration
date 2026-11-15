@@ -1,0 +1,11 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local datasets and temporary files
+data/raw/
+data/derived/
+tmp/
