@@ -104,3 +104,38 @@ initially. Average-expression columns and other genes are deferred.
 ## Exclusions
 The extractor performs no neuronal filtering, detection thresholding,
 percentage calculations, plotting, clustering or statistical inference.
+
+## Wrapper implementation boundary
+
+extract_atlas_counts(handle, config, *, max_nnz_per_chunk)
+
+Inputs:
+- An already-open, read-only HDF5 file.
+- The parsed analysis configuration.
+- The stored-entry chunk limit.
+
+Output:
+- A pandas DataFrame containing all source nuclei in source order.
+- Columns ordered as cell_id, source_row, configured metadata,
+  followed by configured gene count columns.
+- A mapping from requested gene names to source column positions.
+
+Validation before expression extraction:
+- Requested genes are nonempty and unique.
+- Feature identifiers match the matrix column dimension.
+- Each requested gene has exactly one matching feature.
+- Cell identifiers match the matrix row dimension and are unique.
+- Source row count matches extraction.expected_nuclei.
+- Every configured metadata field exists and has one value per nucleus.
+- Metadata names do not collide with generated output column names.
+
+This function does not apply neuronal selection or write files.
+It must not mutate the supplied configuration.
+
+The command-line orchestration layer will verify the source checksum
+before calling this function, then write validated outputs and their
+provenance. The wrapper alone does not authenticate the source file.
+
+String metadata must be decoded to text. Missing values must remain
+missing. Categorical encodings must be decoded explicitly or rejected
+with a clear error; category codes must not silently become labels.

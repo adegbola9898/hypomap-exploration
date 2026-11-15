@@ -105,3 +105,117 @@ def read_csr_columns(matrix_group, column_indices, *, max_nnz_per_chunk):
         raise ValueError("count accumulation produced non-finite values")
 
     return output
+
+
+def _read_vector(handle, path, label):
+    """Read a plain HDF5 vector without silently interpreting categories."""
+    if path not in handle:
+        raise ValueError(f"{label}: missing field {path}")
+
+    obj = handle[path]
+    if not isinstance(obj, h5py.Dataset) or obj.ndim != 1:
+        raise ValueError(
+            f"{label}: expected a plain one-dimensional dataset at {path}; "
+            "categorical groups require explicit decoding"
+        )
+
+    legacy_categories = f"{obj.parent.name}/__categories/{obj.name.rsplit('/', 1)[-1]}"
+    if (
+        legacy_categories in handle
+        or "categories" in obj.attrs
+        or obj.attrs.get("encoding-type") in ("categorical", b"categorical")
+    ):
+        raise ValueError(f"{label}: categorical encoding requires decoding")
+
+    if h5py.check_string_dtype(obj.dtype) is not None:
+        return obj.asstr()[:]
+    return obj[:]
+
+
+def extract_atlas_counts(handle, config, *, max_nnz_per_chunk):
+    """Return an aligned count/metadata table and gene-column mapping."""
+    import pandas as pd
+
+    genes = config["genes"]
+    if (
+        not isinstance(genes, list)
+        or not genes
+        or any(not isinstance(gene, str) or not gene for gene in genes)
+        or len(set(genes)) != len(genes)
+    ):
+        raise ValueError("gene names must be a nonempty list of unique strings")
+
+    matrix_path = config["matrix_path"]
+    if matrix_path not in handle:
+        raise ValueError(f"missing matrix: {matrix_path}")
+    matrix = handle[matrix_path]
+
+    shape = np.asarray(matrix.attrs.get("shape", []))
+    if (
+        shape.shape != (2,)
+        or shape.dtype.kind not in "iu"
+        or np.any(shape < 0)
+    ):
+        raise ValueError("matrix shape must contain two nonnegative integers")
+    n_rows, n_columns = map(int, shape)
+
+    extraction = config["extraction"]
+    if extraction["population"] != "all_nuclei":
+        raise ValueError("extraction population must be all_nuclei")
+    expected = extraction["expected_nuclei"]
+    if not _is_integer(expected) or expected < 0 or n_rows != expected:
+        raise ValueError("source cell count differs from expected_nuclei")
+
+    features = _read_vector(handle, config["feature_index_path"], "gene")
+    if len(features) != n_columns:
+        raise ValueError("gene feature count differs from matrix columns")
+
+    mapping = {}
+    for gene in genes:
+        matches = np.flatnonzero(features == gene)
+        if len(matches) != 1:
+            raise ValueError(
+                f"gene {gene!r} must match exactly one feature; "
+                f"found {len(matches)}"
+            )
+        mapping[gene] = int(matches[0])
+
+    cells = _read_vector(handle, config["cell_index_path"], "cell")
+    if len(cells) != n_rows:
+        raise ValueError("cell identifier count differs from matrix rows")
+    if any(not isinstance(cell, str) or not cell for cell in cells):
+        raise ValueError("cell identifiers must be nonempty strings")
+    if not pd.Index(cells).is_unique:
+        raise ValueError("cell identifiers must be unique")
+
+    fields = extraction["preserve_obs_fields"]
+    if (
+        not isinstance(fields, list)
+        or any(not isinstance(field, str) or not field for field in fields)
+        or len(set(fields)) != len(fields)
+    ):
+        raise ValueError("metadata fields must be unique nonempty strings")
+
+    generated = {"cell_id", "source_row", *(f"{gene}_count" for gene in genes)}
+    if generated.intersection(fields):
+        raise ValueError("metadata fields collide with generated columns")
+
+    values = {
+        "cell_id": cells,
+        "source_row": np.arange(n_rows, dtype=np.int64),
+    }
+    for field in fields:
+        vector = _read_vector(handle, f"obs/{field}", "metadata")
+        if len(vector) != n_rows:
+            raise ValueError(f"metadata length mismatch for {field}")
+        values[field] = vector
+
+    counts = read_csr_columns(
+        matrix,
+        list(mapping.values()),
+        max_nnz_per_chunk=max_nnz_per_chunk,
+    )
+    for position, gene in enumerate(genes):
+        values[f"{gene}_count"] = counts[:, position]
+
+    return pd.DataFrame(values), mapping
