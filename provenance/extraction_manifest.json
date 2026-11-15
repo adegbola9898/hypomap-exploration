@@ -1,0 +1,56 @@
+{
+  "status": "complete",
+  "source_file": "data/raw/human_HYPOMAP_snRNASeq.h5ad",
+  "source_sha256": "7073c8a09bd5b0e12d02efcc150d495bbacd54cd855ade368b4a0030dd71ec6f",
+  "config_sha256": "5f25b6caa9d1661fbaa8d6d5bbc5a93b7869b5bbeeeec3d2a3c2cedfa3457e1f",
+  "output_file": "data/derived/all_nuclei_gene_counts.tsv.gz",
+  "output_sha256": "29efbfe0dec96c8cc630c2dcd8c4e1c808aded5e060340b15b4e171eee3e9701",
+  "n_nuclei": 433369,
+  "n_columns": 18,
+  "gene_columns": {
+    "DENND1B": 1944,
+    "MC4R": 21616
+  },
+  "missing_metadata_counts": {
+    "C0_named": 0,
+    "C1_named": 0,
+    "C3": 0,
+    "C3_named": 0,
+    "C4": 0,
+    "C4_named": 0,
+    "celltype_annotation": 0,
+    "region": 0,
+    "Donor_ID": 0,
+    "Sample_ID": 0,
+    "Dataset": 0,
+    "nCount_RNA": 0,
+    "nFeature_RNA": 0,
+    "percent.mt": 0
+  },
+  "table_read_options": {
+    "sep": "\t",
+    "keep_default_na": false,
+    "na_values": [
+      "__MISSING__"
+    ]
+  },
+  "git": {
+    "commit": "579503c381bb596923df49e2d3ae450f0d2f9edb",
+    "dirty": false,
+    "status": []
+  },
+  "software_versions": {
+    "python": "3.12.16",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "h5py": "3.16.0"
+  },
+  "max_nnz_per_chunk": 1000000,
+  "validation": {
+    "source_checksum_matches": true,
+    "wrapper_and_csr_validation": "passed",
+    "expected_row_count_matches": true,
+    "reserved_missing_marker_absent": true
+  },
+  "completed_at_utc": "2026-11-15T12:44:23.663757+00:00"
+}
