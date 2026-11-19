@@ -28,8 +28,14 @@ general-purpose pipeline or numerical causal scoring system.
 Do not assume DENND1B and LHX9 are the complete candidate set.
 
 ## Current status
-Source preparation. The canine lead variant, genome assembly,
-matching S3 interval and complete candidate list require verification.
+Published-source evidence review drafted:
+- Canine locus, assembly and published seven-gene candidate set recorded.
+- S5-S7 evidence coverage compared across candidates.
+- DENND1B regulatory, patient and functional evidence assessed.
+- Supervisor discussion brief drafted.
+
+Independent annotation-based verification of candidate coordinates
+remains incomplete. No association or functional experiments were rerun.
 
 ## Associated publication
 Wallis et al. (2025).

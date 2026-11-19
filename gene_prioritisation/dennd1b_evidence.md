@@ -67,3 +67,55 @@ https://pmc.ncbi.nlm.nih.gov/articles/PMC7618706/
 S7 reports only the tissue of the maximum-scoring ABC element.
 The main text supplies the identities and cellular contexts of both
 reported elements. The two descriptions are therefore complementary.
+
+## Patient and functional evidence: distinct contributions
+
+### Patient observation
+S6 E3 reports one patient homozygous for DENND1B p.R501C.
+The supplementary Fig. S4B caption adds that both normal-weight parents
+were heterozygous and that exome sequencing found no alternative
+genetic diagnosis.
+
+This family pattern is compatible with a recessive hypothesis, but one
+family does not establish penetrance or prove that the variant caused
+the phenotype. Failure to identify another diagnosis does not exclude
+all other genetic explanations.
+
+### Gene-level perturbation
+The main paper reports that DENND1B overexpression increased
+ligand-induced MC4R internalisation and reduced cAMP signalling.
+Knockdown produced the converse effects, with increased cAMP signalling
+reported at maximal ligand concentrations.
+
+These experiments support a role for DENND1B in MC4R regulation in the
+tested cell system. They do not demonstrate that the canine lead SNP
+changes DENND1B expression or acts through this mechanism.
+
+### Variant-specific experiments
+Supplementary Fig. S7D reports no significant difference in maximum
+MC4R internalisation between wild-type and p.R501C DENND1B
+overexpression under the tested conditions.
+
+Fig. S7E reports differences in ligand-induced cAMP responses between
+conditions; Fig. S7F reports no significant difference in log EC50.
+Different assay endpoints must not be collapsed into a single claim
+that every aspect of receptor function changed.
+
+The p.R501C experiment must be distinguished from DENND1B knockdown.
+The patient variant, human common BMI variants and canine lead variant
+are different genetic observations.
+
+### Relationship to this exercise
+Genetic and regulatory evidence explains why DENND1B was a plausible
+candidate to investigate. Perturbation experiments provide additional
+functional support. This is a distinction between evidence types,
+not a reconstruction of the chronological order of the research.
+
+Our work reviews these published observations; it does not reproduce
+the cell experiments or establish a clinical variant classification.
+
+Sources:
+- S6, cell E3.
+- Supplied supplementary PDF, Fig. S4B and Fig. S7D-F captions.
+- Main paper, DENND1B/MC4R functional results:
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC7618706/
