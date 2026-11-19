@@ -1,0 +1,8 @@
+gene	s5_coverage	s6_coverage	s7_traits	source_locations	interpretation_limit
+NR5A2	No matching row	No matching row	WHR; HDL; Trigs.	S7 rows 9-11	Other metabolic traits; no BMI row reported here
+PTPRC	No matching row	No matching row	HDL	S7 row 12	Shares HDL lead rs6675366 with ATP6V1G3 and NEK7
+ATP6V1G3	No matching row	No matching row	HDL	S7 row 7	Shares HDL lead rs6675366 with NEK7 and PTPRC
+NEK7	No matching row	No matching row	HDL	S7 row 8	Shares HDL lead rs6675366 with ATP6V1G3 and PTPRC
+LHX9	No matching row	No matching row	No matching row	S5-S7 inspected	Absence from these tables does not exclude the candidate
+DENND1B	Immune and asthma-related findings	BMI GWAS; UKB ExWAS; single SOPP patient	BMI	S5 row 6; S6 row 3; S7 row 6	S6/S7 repeat GWAS evidence; G2G aggregates component evidence
+CRB1	No matching row	No matching row	No matching row	S5-S7 inspected	Absence from these tables does not exclude the candidate
