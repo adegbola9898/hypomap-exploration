@@ -8,7 +8,7 @@ This document does not reproduce the underlying association analyses.
 | Human common-variant BMI association | rs6702421: T allele associated with approximately +0.011 kg/m² BMI, p=9.42e-9; secondary signal rs1009188: approximately +0.012 kg/m² per T allele, p=7.15e-11 | S6 B3; S7 C6:L6 | Supports association in the human region. Association alone does not identify the causal gene. S6 and S7 overlap in their evidence. |
 | Allele direction | S7 reports C as the effect allele at rs6702421, beta=-0.0114; S6 reports the opposite T allele with a positive effect | S6 B3; S7 G6:J6 | Directions agree after accounting for the effect allele and rounding. |
 | Expression colocalisation | H4 posterior probability=0.979195408; source labelled eQTLGen | S7 U6:W6 | Supports a shared association signal under the colocalisation model. It is not a probability that DENND1B causes obesity and does not establish a hypothalamic mechanism. |
-| SMR and HEIDI | SMR FDR-corrected p=1.72e-6; HEIDI p=0.03007395 | S7 X6:AA6 | Record both statistics. Interpretation requires the authors' decision thresholds and assumptions; do not label this an unqualified causal result. |
+| SMR and HEIDI | SMR FDR-corrected p=1.72e-6; HEIDI p=0.03007395 | S7 X6:AA6 | Passes the authors' criteria: FDR-corrected SMR p < 0.05 and HEIDI p > 0.001 (supplementary methods, page 13). Supports their shared-signal interpretation under the method's assumptions; does not establish causality. |
 | PoPS | DENND1B labelled the top PoPS gene; score=0.011524202 | S7 AB6:AC6 | Supports computational prioritisation. It is not independent experimental validation. |
 | Regulatory links | ABC link marked yes; two elements; maximum score=0.182727; maximum-scoring element tissue=HAP1 | S7 AD6:AG6 | Supports a regulatory connection. The tissue listed describes the maximum-scoring element, not necessarily both elements. This row alone does not establish regulation in hypothalamic neurons. |
 | Integrated G2G result | Genome-wide rank=238; percentile=96; causal predictor N=4 | S7 M6:P6 | Summarises component evidence. The percentile is not a causal probability; do not count the summary as an additional independent confirmation. |
@@ -33,8 +33,37 @@ body condition.
 
 ## Outstanding questions
 
-- What thresholds did the authors use to interpret SMR and HEIDI?
-- How were the two ABC elements assigned, and in which tissues?
+- Can the specific ABC element coordinates and variant overlaps be independently verified?
 - What additional evidence supports interpretation of p.R501C?
 - Can the seven-gene published set be reconciled with interval annotation?
 - Were all seven candidates assessed comparably for human BMI?
+
+## Verified analysis criteria
+
+Source: supplied supplementary methods PDF, page 13.
+
+- SMR: FDR-corrected p < 0.05.
+- HEIDI: p > 0.001.
+- Coloc: H4 posterior probability > 0.75.
+
+DENND1B meets all three stated criteria using the values in S7.
+This is a check of published results against published thresholds,
+not a rerun of SMR, HEIDI or colocalisation.
+
+For ABC annotation, the methods considered independent signals and
+closely linked variants (r² > 0.8) overlapping mapped regulatory elements.
+The main paper identifies a DENND1B promoter in HAP1 cells and an enhancer active in bipolar iPSC neurons. These are published regulatory assignments, not independently verified element coordinates or evidence specific to hypothalamic MC4R-expressing neurons.
+
+The methods also state that orthologous genes within each region were
+queried for G2G evidence across the anthropometric and lipid GWAS.
+The displayed S7 rows do not provide a complete gene-by-trait results
+matrix, so an omitted BMI row cannot be interpreted as a negative result.
+
+## Regulatory evidence source
+
+Main paper, section "DENND1B is associated with canine and human obesity":
+https://pmc.ncbi.nlm.nih.gov/articles/PMC7618706/
+
+S7 reports only the tissue of the maximum-scoring ABC element.
+The main text supplies the identities and cellular contexts of both
+reported elements. The two descriptions are therefore complementary.
