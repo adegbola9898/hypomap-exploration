@@ -67,3 +67,32 @@ a short interpretation explaining findings and limitations.
 
 ## Status
 Plan documented; implementation has not started.
+
+## Data-generator interface
+simulate_dataset(settings, rng)
+
+Inputs:
+- settings: mapping containing n_intact, n_neutered, allele_frequency,
+  intercept, beta_g, beta_n, beta_gn and residual_sd.
+- rng: an explicitly supplied NumPy random Generator.
+
+Output:
+- A pandas DataFrame with columns G, N, Y.
+- Exactly n_intact + n_neutered rows.
+- Intact rows first (N=0), then neutered rows (N=1).
+- Integer genotype dosage G in {0, 1, 2}.
+- Floating-point outcome Y in arbitrary units.
+
+Behaviour:
+- Generate genotypes with the same allele frequency in both groups.
+- Generate independent normally distributed residuals.
+- Apply the documented data-generating equation.
+- Do not mutate settings, write files or fit models.
+- The supplied random generator advances as draws are consumed.
+
+Validation:
+- Group sizes must be positive integers, excluding booleans.
+- Allele frequency must be finite and strictly between 0 and 1.
+- Model coefficients must be finite.
+- Residual standard deviation must be finite and nonnegative.
+- Zero residual standard deviation is permitted for deterministic tests.
