@@ -1,0 +1,22 @@
+{
+  "recorded_at_utc": "2026-11-23T02:55:38.477501+00:00",
+  "verification": "Both executables returned successfully for --version. Checksums identify local copies; no independent publisher checksum comparison was performed.",
+  "tools": [
+    {
+      "tool": "plink",
+      "version": "PLINK v1.9.1 64-bit (11 Nov 2026)",
+      "download_url": "https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20261111.zip",
+      "archive_sha256": "2038e1a73a1ae4ac10d705fef45c9f012f1f7696ce188f72faff80d0ae6d523c",
+      "executable_sha256": "de684dfe15f6203407d9723bdcd7d8a42dbf371075c225b61ff5da339f680bbf",
+      "local_executable": "/home/samuel/.local/opt/plink/plink1_20261111/plink"
+    },
+    {
+      "tool": "plink2",
+      "version": "PLINK v2.0.0-b.1.4LM 64-bit Intel (7 Nov 2026)",
+      "download_url": "https://s3.amazonaws.com/plink2-assets/beta1/plink2_linux_x86_64_20261107.zip",
+      "archive_sha256": "16b5cf92faed7e8b8aa1010c6eab9bac17c92b57ccfa69c4d059b1b17b98eb70",
+      "executable_sha256": "93ab85dde8743b76e815a84a13bc6e62650148cb6abf785e1909c8d08c589dcc",
+      "local_executable": "/home/samuel/.local/opt/plink/plink2_20261107/plink2"
+    }
+  ]
+}
