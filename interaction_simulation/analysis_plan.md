@@ -96,3 +96,50 @@ Validation:
 - Model coefficients must be finite.
 - Residual standard deviation must be finite and nonnegative.
 - Zero residual standard deviation is permitted for deterministic tests.
+
+## Model-fitting interface
+fit_models(table)
+
+Input:
+- A DataFrame containing numeric columns G, N and Y.
+- G contains genotype dosages in {0, 1, 2}.
+- N contains group labels in {0, 1}, with both groups present.
+- Y contains finite continuous outcomes.
+- Each group must have at least three observations and variation in G.
+- Missing or invalid values are rejected, not silently dropped.
+
+Models:
+- Intact: Y ~ 1 + G.
+- Neutered: Y ~ 1 + G.
+- Combined: Y ~ 1 + G + N + G:N.
+
+Inference:
+- Ordinary least squares with conventional, nonrobust standard errors.
+- Two-sided t-tests and 95% t-based confidence intervals.
+- Separate models estimate residual variance within each group.
+- The combined model estimates a common residual variance.
+- Full-rank designs and positive residual degrees of freedom are required.
+
+Output:
+A DataFrame with three rows, ordered:
+- intact: genotype coefficient from the intact-only model.
+- neutered: genotype coefficient from the neutered-only model.
+- interaction: G:N coefficient from the combined model.
+
+Columns:
+- effect
+- estimate
+- standard_error
+- ci_lower
+- ci_upper
+- p_value
+- n
+- allele_frequency
+
+For group rows, n and allele_frequency describe that group.
+For the interaction row, n is the total sample size and
+allele_frequency is missing because the contrast has no single
+group-specific allele frequency.
+
+The function does not mutate its input, write files or classify
+results as significant. Nonfinite inference outputs raise an error.
